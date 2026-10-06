@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Spotify 2.0</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>SpotNick</h1>
+
+        <nav>
+            <a href="#">Início</a>
+            <a href="#musicas">Músicas</a>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- FORMULÁRIO -->
+        <section id="cadastro">
+
+            <h2>Adicionar música</h2>
+
+            <form>
+
+                <input
+                    id="nome"
+                    type="text"
+                    placeholder="Nome da música"
+                >
+
+                <input
+                    id="estilo"
+                    type="text"
+                    placeholder="Estilo musical"
+                >
+
+                <input
+                    id="duracao"
+                    type="text"
+                    placeholder="Duração (ex: 3:20)"
+                >
+
+                <!-- Link da imagem -->
+                <input
+                    id="imagem"
+                    type="url"
+                    placeholder="Link da imagem"
+                >
+
+                <!-- Link do áudio -->
+                <input
+                    id="audio"
+                    type="url"
+                    placeholder="Link do áudio"
+                >
+
+                <button id="adicionar" type="button">
+                    Adicionar música
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- MÚSICAS -->
+        <section id="musicas">
+
+            <h2>Minhas músicas</h2>
+
+            <!--
+                O JavaScript vai colocar
+                as músicas aqui.
+            -->
+            <div id="listaMusicas"></div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>Spotify 2.0</p>
+    </footer>
+
+
+    <script type="module" src="script.js"></script>
+
+</body>
+
+</html>
