@@ -1,0 +1,885 @@
+/* ========================================
+   RESET
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #0f0f0f;
+    color: white;
+
+    min-height: 100vh;
+
+    padding-bottom: 90px;
+}
+
+
+/* ========================================
+   SIDEBAR
+======================================== */
+
+.sidebar {
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    width: 240px;
+    height: 100vh;
+
+    background: #080808;
+
+    padding: 30px 20px;
+
+    border-right: 1px solid #222;
+
+    z-index: 10;
+}
+
+.sidebar h1 {
+    color: #1ed760;
+
+    font-size: 25px;
+
+    margin-bottom: 40px;
+
+    text-align: center;
+}
+
+.sidebar nav {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.sidebar nav button {
+    width: 100%;
+
+    background: transparent;
+
+    border: none;
+
+    color: #b3b3b3;
+
+    text-align: left;
+
+    padding: 14px 15px;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.sidebar nav button:hover {
+    background: #1e1e1e;
+
+    color: white;
+}
+
+
+/* ========================================
+   MAIN
+======================================== */
+
+main {
+    margin-left: 240px;
+
+    width: calc(100% - 240px);
+
+    max-width: 1400px;
+
+    padding: 35px;
+}
+
+
+/* ========================================
+   TOPO
+======================================== */
+
+.topo {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 30px;
+
+    margin-bottom: 35px;
+}
+
+.topo h2 {
+    font-size: 30px;
+
+    margin-bottom: 8px;
+}
+
+.topo p {
+    color: #a7a7a7;
+
+    font-size: 14px;
+}
+
+#pesquisa {
+    width: 320px;
+
+    padding: 14px 18px;
+
+    background: #242424;
+
+    border: 1px solid #333;
+
+    border-radius: 30px;
+
+    color: white;
+
+    outline: none;
+
+    font-size: 14px;
+}
+
+#pesquisa:focus {
+    border-color: #1ed760;
+
+    background: #292929;
+}
+
+#pesquisa::placeholder {
+    color: #999;
+}
+
+
+/* ========================================
+   SEÇÕES
+======================================== */
+
+section {
+    background: #181818;
+
+    border-radius: 12px;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+}
+
+section h2 {
+    font-size: 22px;
+
+    margin-bottom: 8px;
+}
+
+section > p {
+    color: #a7a7a7;
+
+    font-size: 14px;
+}
+
+
+/* ========================================
+   FORMULÁRIO
+======================================== */
+
+form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+label {
+    color: #b3b3b3;
+
+    font-size: 13px;
+
+    margin-top: 5px;
+}
+
+input {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    background: #282828;
+
+    border: 1px solid #3a3a3a;
+
+    border-radius: 6px;
+
+    color: white;
+
+    outline: none;
+
+    font-size: 14px;
+}
+
+input:focus {
+    border-color: #1ed760;
+
+    background: #303030;
+}
+
+input::placeholder {
+    color: #888;
+}
+
+
+/* ========================================
+   BOTÕES
+======================================== */
+
+button {
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+form button,
+#abrirCriarAlbum,
+#abrirCriarAlbum2,
+#criarAlbum {
+    border: none;
+
+    background: #1ed760;
+
+    color: #000;
+
+    font-weight: bold;
+
+    border-radius: 25px;
+
+    padding: 12px 20px;
+
+    font-size: 14px;
+
+    margin-top: 10px;
+}
+
+form button:hover,
+#abrirCriarAlbum:hover,
+#abrirCriarAlbum2:hover,
+#criarAlbum:hover {
+    background: #1fdf64;
+
+    transform: scale(1.02);
+}
+
+
+/* ========================================
+   TÍTULO DAS LISTAS
+======================================== */
+
+.titulo-lista {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+
+    gap: 20px;
+}
+
+
+/* ========================================
+   FILTRO
+======================================== */
+
+#filtroEstilo {
+    background: #282828;
+
+    color: white;
+
+    border: 1px solid #3a3a3a;
+
+    padding: 10px 15px;
+
+    border-radius: 6px;
+
+    outline: none;
+
+    cursor: pointer;
+}
+
+#filtroEstilo:focus {
+    border-color: #1ed760;
+}
+
+
+/* ========================================
+   LISTA DE MÚSICAS
+======================================== */
+
+#listaMusicas,
+#listaFavoritos {
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(210px, 1fr)
+    );
+
+    gap: 20px;
+}
+
+
+/* ========================================
+   CARD
+======================================== */
+
+.musica {
+    background: #202020;
+
+    padding: 16px;
+
+    border-radius: 10px;
+
+    border: 1px solid transparent;
+
+    transition: 0.25s;
+
+    position: relative;
+}
+
+.musica:hover {
+    background: #292929;
+
+    border-color: #383838;
+
+    transform: translateY(-5px);
+}
+
+.musica img {
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+
+    margin-bottom: 15px;
+}
+
+.musica h3 {
+    font-size: 17px;
+
+    margin-bottom: 8px;
+}
+
+.musica p {
+    color: #a7a7a7;
+
+    font-size: 13px;
+
+    margin-bottom: 5px;
+}
+
+.musica audio {
+    width: 100%;
+
+    margin-top: 15px;
+}
+
+
+/* ========================================
+   BOTÕES DO CARD
+======================================== */
+
+.acoes-musica {
+    display: flex;
+
+    gap: 8px;
+
+    margin-top: 12px;
+}
+
+.acoes-musica button {
+    flex: 1;
+
+    border: none;
+
+    padding: 8px;
+
+    border-radius: 6px;
+
+    background: #333;
+
+    color: white;
+}
+
+.acoes-musica button:hover {
+    background: #444;
+}
+
+.acoes-musica .favoritar {
+    color: #ff4d6d;
+}
+
+
+/* ========================================
+   ÁLBUNS
+======================================== */
+
+#listaAlbuns {
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(200px, 1fr)
+    );
+
+    gap: 20px;
+}
+
+.album {
+    background: #202020;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    transition: 0.25s;
+
+    cursor: pointer;
+}
+
+.album:hover {
+    background: #292929;
+
+    transform: translateY(-5px);
+}
+
+.album img {
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+
+    margin-bottom: 12px;
+}
+
+.album h3 {
+    font-size: 17px;
+
+    margin-bottom: 5px;
+}
+
+.album p {
+    color: #999;
+
+    font-size: 13px;
+}
+
+
+/* ========================================
+   BOTÕES DO ÁLBUM
+======================================== */
+
+.acoes-album {
+    display: flex;
+
+    gap: 8px;
+
+    margin-top: 12px;
+}
+
+.acoes-album button {
+    flex: 1;
+
+    border: none;
+
+    background: #333;
+
+    color: white;
+
+    padding: 8px;
+
+    border-radius: 6px;
+}
+
+.acoes-album button:hover {
+    background: #444;
+}
+
+
+/* ========================================
+   MODAL
+======================================== */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 100;
+}
+
+.modal.aberto {
+    display: flex;
+}
+
+.modal-conteudo {
+    width: 90%;
+
+    max-width: 450px;
+
+    background: #181818;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    position: relative;
+}
+
+.modal-conteudo h2 {
+    margin-bottom: 10px;
+}
+
+.modal-conteudo p {
+    color: #999;
+
+    margin-bottom: 20px;
+}
+
+.modal-conteudo label {
+    display: block;
+
+    margin-top: 15px;
+}
+
+.modal-conteudo input {
+    margin-top: 7px;
+}
+
+.fechar {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    width: 35px;
+    height: 35px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #333;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+.fechar:hover {
+    background: #444;
+}
+
+
+/* ========================================
+   PLAYER
+======================================== */
+
+.player {
+    position: fixed;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 80px;
+
+    background: #181818;
+
+    border-top: 1px solid #333;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 10px 25px;
+
+    z-index: 50;
+}
+
+.musica-atual {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    width: 30%;
+}
+
+#playerImagem {
+    width: 50px;
+    height: 50px;
+
+    object-fit: cover;
+
+    border-radius: 5px;
+
+    background: #282828;
+}
+
+.musica-atual strong {
+    font-size: 14px;
+}
+
+.musica-atual p {
+    color: #999;
+
+    font-size: 12px;
+
+    margin-top: 4px;
+}
+
+
+/* ========================================
+   CONTROLES
+======================================== */
+
+.controles {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.controles button {
+    width: 35px;
+    height: 35px;
+
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 17px;
+
+    border-radius: 50%;
+}
+
+.controles button:hover {
+    background: #333;
+}
+
+#playerPlay {
+    background: white;
+
+    color: black;
+
+    font-size: 15px;
+}
+
+#playerPlay:hover {
+    transform: scale(1.08);
+}
+
+
+/* ========================================
+   VOLUME
+======================================== */
+
+.volume {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    width: 30%;
+
+    justify-content: flex-end;
+}
+
+#volume {
+    width: 100px;
+
+    padding: 0;
+
+    accent-color: #1ed760;
+
+    background: transparent;
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+footer {
+    margin-left: 240px;
+
+    text-align: center;
+
+    padding: 25px;
+
+    color: #777;
+
+    font-size: 13px;
+}
+
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 800px) {
+
+    .sidebar {
+        position: relative;
+
+        width: 100%;
+
+        height: auto;
+
+        border-right: none;
+
+        border-bottom: 1px solid #222;
+    }
+
+    .sidebar h1 {
+        margin-bottom: 20px;
+    }
+
+    .sidebar nav {
+        flex-direction: row;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .sidebar nav button {
+        width: auto;
+
+        text-align: center;
+    }
+
+    main {
+        margin-left: 0;
+
+        width: 100%;
+
+        padding: 20px;
+    }
+
+    footer {
+        margin-left: 0;
+    }
+
+    .topo {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    #pesquisa {
+        width: 100%;
+    }
+
+    .volume {
+        display: none;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .sidebar nav {
+        flex-direction: column;
+    }
+
+    .sidebar nav button {
+        width: 100%;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    section {
+        padding: 18px;
+    }
+
+    .titulo-lista {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    #filtroEstilo {
+        width: 100%;
+    }
+
+    #listaMusicas,
+    #listaAlbuns,
+    #listaFavoritos {
+        grid-template-columns: 1fr;
+    }
+
+    .musica-atual {
+        display: none;
+    }
+
+    .player {
+        justify-content: center;
+    }
+}
+
+header img {
+    width: 150px;
+    height: auto;
+    display: block;
+}
+
+header a {
+    display: inline-block;
+    width: fit-content;
+    height: fit-content;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+nav a {
+    color: inherit;
+    text-decoration: none;
+}

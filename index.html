@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Spotify 2.0</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+<div id="inicio"></div>
+
+
+<!-- =================================
+     SIDEBAR
+================================== -->
+
+<aside class="sidebar">
+
+    <header>
+
+        <a
+            href="https://www.instagram.com/eu_nicolas7/"
+            target="_blank"
+        >
+
+            <img
+                src="/img/Logo.SpotNick.png"
+                alt="Logo SpotNick"
+            >
+
+        </a>
+
+    </header>
+
+
+    <nav>
+
+        <button
+            type="button"
+            data-secao="inicio"
+        >
+            🏠 Início
+        </button>
+
+
+        <button
+            type="button"
+            data-secao="musicas"
+        >
+            🎵 Minhas músicas
+        </button>
+
+
+        <button
+            type="button"
+            data-secao="albuns"
+        >
+            💿 Meus álbuns
+        </button>
+
+
+        <button
+            type="button"
+            data-secao="cadastro"
+        >
+            ➕ Adicionar música
+        </button>
+
+
+        <button
+            type="button"
+            id="abrirCriarAlbum"
+        >
+            💿 Criar álbum
+        </button>
+
+
+        <button
+            type="button"
+            data-secao="favoritos"
+        >
+            ❤️ Favoritos
+        </button>
+
+
+        <button
+            id="excluirSelecionadas"
+            type="button"
+        >
+            🗑️ Excluir selecionadas
+        </button>
+
+    </nav>
+
+</aside>
+
+
+
+<!-- =================================
+     CONTEÚDO PRINCIPAL
+================================== -->
+
+<main>
+
+
+    <!-- =================================
+         TOPO
+    ================================== -->
+
+    <div class="topo">
+
+        <div>
+
+            <h2>
+                Minhas músicas
+            </h2>
+
+            <p>
+                Sua biblioteca de músicas
+            </p>
+
+        </div>
+
+
+        <input
+            id="pesquisa"
+            type="text"
+            placeholder="🔎 Pesquisar música..."
+        >
+
+    </div>
+
+
+
+    <!-- =================================
+         CADASTRO DE MÚSICA
+    ================================== -->
+
+    <section id="cadastro">
+
+        <h2>
+            Adicionar música
+        </h2>
+
+        <p>
+            Adicione uma nova música à sua biblioteca.
+        </p>
+
+
+        <form>
+
+            <label for="nome">
+                Nome da música
+            </label>
+
+            <input
+                id="nome"
+                type="text"
+                placeholder="Nome da música"
+            >
+
+
+            <label for="estilo">
+                Estilo musical
+            </label>
+
+            <input
+                id="estilo"
+                type="text"
+                placeholder="Ex: Rock, Pop, Rap..."
+            >
+
+
+            <label for="duracao">
+                Duração
+            </label>
+
+            <input
+                id="duracao"
+                type="text"
+                placeholder="Ex: 3:20"
+            >
+
+
+            <label for="imagem">
+                Capa da música
+            </label>
+
+            <input
+                id="imagem"
+                type="url"
+                placeholder="Cole a URL da capa"
+            >
+
+
+            <label for="audio">
+                Arquivo da música
+            </label>
+
+            <input
+                id="audio"
+                type="file"
+                accept="audio/*"
+            >
+
+
+            <button
+                id="adicionar"
+                type="button"
+            >
+                ➕ Adicionar música
+            </button>
+
+        </form>
+
+    </section>
+
+
+
+    <!-- =================================
+         ÁLBUNS
+    ================================== -->
+
+    <section id="albuns">
+
+        <div class="titulo-lista">
+
+            <div>
+
+                <h2>
+                    Meus álbuns
+                </h2>
+
+                <p>
+                    Seus álbuns criados
+                </p>
+
+            </div>
+
+
+            <button
+                id="abrirCriarAlbum2"
+                type="button"
+            >
+                💿 Criar álbum
+            </button>
+
+        </div>
+
+
+        <div id="listaAlbuns"></div>
+
+    </section>
+
+
+
+    <!-- =================================
+         MÚSICAS
+    ================================== -->
+
+    <section id="musicas">
+
+        <div class="titulo-lista">
+
+            <div>
+
+                <h2>
+                    Minhas músicas
+                </h2>
+
+                <p>
+                    Todas as músicas cadastradas
+                </p>
+
+            </div>
+
+
+            <select id="filtroEstilo">
+
+                <option value="todos">
+                    Todos os estilos
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div id="listaMusicas"></div>
+
+    </section>
+
+
+
+    <!-- =================================
+         FAVORITOS
+    ================================== -->
+
+    <section id="favoritos">
+
+        <div class="titulo-lista">
+
+            <div>
+
+                <h2>
+                    ❤️ Favoritos
+                </h2>
+
+                <p>
+                    Suas músicas favoritas
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div id="listaFavoritos"></div>
+
+    </section>
+
+</main>
+
+
+
+<!-- =================================
+     MODAL CRIAR ÁLBUM
+================================== -->
+
+<div
+    id="modalAlbum"
+    class="modal"
+>
+
+    <div class="modal-conteudo">
+
+        <button
+            id="fecharModal"
+            class="fechar"
+            type="button"
+        >
+            ✕
+        </button>
+
+
+        <h2>
+            Criar álbum
+        </h2>
+
+
+        <p>
+            Crie um novo álbum para organizar suas músicas.
+        </p>
+
+
+        <label for="nomeAlbum">
+            Nome do álbum
+        </label>
+
+        <input
+            id="nomeAlbum"
+            type="text"
+            placeholder="Nome do álbum"
+        >
+
+
+        <label for="imagemAlbum">
+            Capa do álbum
+        </label>
+
+        <input
+            id="imagemAlbum"
+            type="url"
+            placeholder="URL da capa"
+        >
+
+
+        <button
+            id="criarAlbum"
+            type="button"
+        >
+            💿 Criar álbum
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =================================
+     PLAYER INFERIOR
+================================== -->
+
+<div class="player">
+
+    <div class="musica-atual">
+
+        <img
+            id="playerImagem"
+            src=""
+            alt=""
+        >
+
+
+        <div>
+
+            <strong id="playerNome">
+                Nenhuma música
+            </strong>
+
+
+            <p id="playerEstilo">
+                Selecione uma música
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- SOMENTE PLAY / PAUSE -->
+
+    <div class="controles">
+
+        <button
+            id="playerPlay"
+            type="button"
+        >
+            ▶
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =================================
+     FOOTER
+================================== -->
+
+<footer>
+
+    <p>
+        Spotify 2.0 • Projeto de estudos
+    </p>
+
+</footer>
+
+
+
+<!-- =================================
+     JAVASCRIPT
+================================== -->
+
+<script
+    type="module"
+    src="script.js"
+></script>
+
+
+</body>
+
+</html>
